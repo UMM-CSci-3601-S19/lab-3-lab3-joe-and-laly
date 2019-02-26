@@ -11,7 +11,7 @@ browser.driver.controlFlow().execute = function () {
   //This delay is only put here so that you can watch the browser do its' thing.
   //If you're tired of it taking long you can remove this call
   origFn.call(browser.driver.controlFlow(), function () {
-    return protractor.promise.delayed(100);
+    return protractor.promise.delayed(0);
   });
 
   return origFn.apply(browser.driver.controlFlow(), args);
@@ -47,4 +47,17 @@ describe('Todo list', () => {
     expect(page.getUniqueTodo("588959856601f6a77b6a2862")).toEqual("Fry");
 
   });
+
+  it('should type in complete and return 143 elements with 27 Fry', () => {
+    page.navigateTo();
+    page.getTodoByStatus('complete');
+    expect(page.getUniqueTodo("588959850158d603e15705d5")).toEqual("Fry")
+  });
+
+  it('should type in incomplete and return 157 elements with 31 Workman', () => {
+    page.navigateTo();
+    page.getTodoByStatus('incomplete');
+    expect(page.getUniqueTodo("58895985b0b02f05ffe88341")).toEqual("Workman")
+  });
+
 });
