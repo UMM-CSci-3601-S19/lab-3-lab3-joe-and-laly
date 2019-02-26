@@ -49,7 +49,7 @@ export class TodoPage {
     input.sendKeys(body);
   }
 
-  getTodoByStatus(status: boolean) {
+  getTodoByStatus(status: string) {
     let input = element(by.id('todoStatus'));
     input.click();
     input.sendKeys(status);

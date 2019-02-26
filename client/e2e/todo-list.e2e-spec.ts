@@ -32,21 +32,19 @@ describe('Todo list', () => {
   it('should type something in filter owner box and check that it returned correct element', () => {
     page.navigateTo();
     page.typeAnOwner("l");
-    expect(page.getUniqueTodo("588959851e4dc2da5e75599b")).toEqual("Blanche");
+    expect(page.getUniqueTodo("58895985099029320e5242a0")).toEqual("Blanche");
     page.backspace();
     page.typeAnOwner("Barry");
-    expect(page.getUniqueTodo("588959852fa0cc5a7059c277")).toEqual("Barry");
+    expect(page.getUniqueTodo("588959851810cf28d7c0c231")).toEqual("Barry");
   });
 
-  // it('should click on the age 27 times and return 3 elements', () => {
-  //   page.navigateTo();
-  //   page.getTodoByCategory('homework');
-  //
-  //
-  //
-  //   expect(page.getUniqueTodo("588959859fb68af109fb7939")).toEqual("Dawn");
-  //
-  //   expect(page.getUniqueTodo("58895985bb003400a5431e77")).toEqual("Fry");
-  //
-  // });
+  it('should type a category and return 79 elements and 13 Fry and 16 dawn', () => {
+    page.navigateTo();
+    page.getTodoByCategory('homework');
+
+    expect(page.getUniqueTodo("58895985e9aaeaad6292df39")).toEqual("Dawn");
+
+    expect(page.getUniqueTodo("588959856601f6a77b6a2862")).toEqual("Fry");
+
+  });
 });
