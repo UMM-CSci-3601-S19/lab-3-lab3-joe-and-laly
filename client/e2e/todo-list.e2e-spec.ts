@@ -60,4 +60,10 @@ describe('Todo list', () => {
     expect(page.getUniqueTodo("58895985b0b02f05ffe88341")).toEqual("Workman")
   });
 
+  it('should type in anim and return 94 elements with 18 Roberta', () => {
+    page.navigateTo();
+    page.getTodoByBody('anim');
+    expect(page.getUniqueTodo("58895985de9ee3ff8a1c9449")).toEqual("Roberta")
+  });
+
 });
