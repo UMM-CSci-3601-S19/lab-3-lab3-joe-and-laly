@@ -66,7 +66,7 @@ export class TodoListComponent implements OnInit {
   //   if(statusString == "complete"){return true;}
   //   if(statusString == "incomplete"){return false;}
   //   return null;
-  //}
+  // }
 
   /**
    * Starts an asynchronous operation to update the todos list
