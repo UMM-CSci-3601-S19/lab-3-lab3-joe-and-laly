@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 public class TodoDatabase {
 
@@ -30,11 +31,29 @@ public class TodoDatabase {
       filteredTodos[0] = getTodo(targetID);
     }
 
+    if(queryParams.containsKey("status")) {
+      if(((queryParams.get("status")[0] == "complete"))||((queryParams.get("status")[0] == "incomplete"))) {
+        Boolean targetStatus = stringToBool(queryParams.get("status")[0]);
+        filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+      }
+    }
+
     return filteredTodos;
   }
 
-  public Todo[] filterTodosByID(Todo[] todos, String targetID) {
+  public Todo[] filterTodosById(Todo[] todos, String targetID) {
     return Arrays.stream(todos).filter(x -> x._id.equals(targetID)).toArray(Todo[]::new);
+  }
+
+  public Todo[] filterTodosByStatus(Todo[] todos, Boolean status) {
+    return Arrays.stream(todos).filter(x -> x.status == status).toArray(Todo[]::new);
+  }
+
+  public boolean stringToBool(String status){
+    if(status =="complete") {
+      return true;
+    }
+    return false;
   }
 
 }

@@ -29,8 +29,10 @@
               <mat-panel-title matTooltip="owner: {{todo.owner}}">{{todo.owner}} </mat-panel-title>
 
             </mat-expansion-panel-header>
-            <mat-panel-description>Is in {{todo.category}} category</mat-panel-description>
-            <mat-panel-description>Is owned by {{todo.owner}} </mat-panel-description>
+            <mat-panel-description>The Id is '{{todo._id}}'</mat-panel-description>
+            <mat-panel-description>Is owned by '{{todo.owner}}' </mat-panel-description>
+            <mat-panel-description>Has a status of '{{todo.status}}'</mat-panel-description>
+            <mat-panel-description>Is in the '{{todo.category}}' category</mat-panel-description>
             <mat-panel-description>The body text is '{{todo.body}}' </mat-panel-description>
           </mat-expansion-panel>
         </mat-accordion>
